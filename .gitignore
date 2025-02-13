@@ -4,4 +4,4 @@ test-results
 log/
 package-lock.json
 local.log
-obs_**
+.obs_**
