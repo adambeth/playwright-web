@@ -162,3 +162,25 @@ test("Trip Cart Test - Multiday Two, Insta without Captains", async ({
   expect(await tripCart.getTotalCostText(isMobile)).toEqual("USD $2,400.00");
   // Add more expectations as needed
 });
+
+test.only("Trip Cart Test - Hour, Multiday 0", async ({ page }) => {
+  await page.goto("/trips/2XN9ZkqQ/");
+  await page.waitForLoadState("load");
+  const tripCart = new TripCart(page);
+  isMobile
+    ? expect(await tripCart.getCaptainLabelText(isMobile)).toBe("With Captain")
+    : expect(await tripCart.getCaptainLabelText(isMobile)).toBe(
+        "Estimated Cost • With Captain (Separate captain fee)"
+      );
+  isMobile && (await tripCart.toggleMobileDraw());
+  const options = await tripCart.getDurationDropDownOptions();
+
+  // Add an expect statement to verify the values of the options
+  expect(options).toContain("1 hour");
+  expect(options).toContain("2 hours");
+  expect(options).toContain("3 hours");
+  expect(options).toContain("4 hours");
+  expect(options).toContain("Full day");
+
+  // Add more expectations as needed
+});

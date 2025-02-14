@@ -1,6 +1,8 @@
 userName: adambethlehem_AGClxt
 accessKey: D5mRrTaKgHPzpsvhVXAL
 browserstack.geoLocation: US
+projectName: GetMyBoat Web Playwright
+buildName: Regression
 platforms:
   - os: Windows
     osVersion: 11

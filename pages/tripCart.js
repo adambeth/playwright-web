@@ -17,6 +17,7 @@ exports.TripCart = class TripCart {
     this.multiDayToggleMobile = page.getByTestId("multi-day-toggle");
     this.noCaptainOptions = page.getByText("No Captain");
     this.btnClose = page.getByTestId("close-button");
+    this.captainLabel = page.getByTestId("captain-type-label");
   }
 
   /**
@@ -67,6 +68,15 @@ exports.TripCart = class TripCart {
     return isMobile
       ? await this.captainCost.nth(1).textContent()
       : await this.captainCost.textContent();
+  }
+
+  /**
+   * Gets the text from the captain label element.
+   */
+  async getCaptainLabelText(isMobile) {
+    return isMobile
+      ? await this.captainLabel.nth(1).textContent()
+      : await this.captainLabel.textContent();
   }
 
   /**
