@@ -163,7 +163,7 @@ test("Trip Cart Test - Multiday Two, Insta without Captains", async ({
   // Add more expectations as needed
 });
 
-test.only("Trip Cart Test - Hour, Multiday 0", async ({ page }) => {
+test("Trip Cart Test - Hour, Multiday 0", async ({ page }) => {
   await page.goto("/trips/2XN9ZkqQ/");
   await page.waitForLoadState("load");
   const tripCart = new TripCart(page);
